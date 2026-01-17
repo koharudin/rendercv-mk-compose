@@ -1,0 +1,35 @@
+version: "3.9"
+
+services:
+  next-app:
+    image: node:18-alpine
+    build: 
+      context: . 
+      dockerfile: fe.Dockerfile
+    working_dir: /app
+    volumes:
+      - ./web:/app
+    command: sh -c "npm install && npm run dev"
+    tty: true
+    ports:
+      - "3000:3000"
+    #depends_on:
+    #  - rendercv
+    environment:
+      - RENDERCV_URL=http://rendercv:8000
+
+  rendercv:
+    tty: true
+    build: 
+      context: .
+      dockerfile: be.Dockerfile
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./docker-dev-volumes/rendercv-output:/output
+      - ./backend-rendercv:/app
+    command: ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "8000"]
+
+
+volumes:
+  rendercv-output:

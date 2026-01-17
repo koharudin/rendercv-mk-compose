@@ -1,0 +1,8 @@
+[submodule "backend-rendercv"]
+	path = backend-rendercv
+	url = https://github.com/koharudin/rendercv.git
+	branch = main
+[submodule "web"]
+	path = web
+	url = https://github.com/koharudin/web-rendercv.git
+	branch = main
