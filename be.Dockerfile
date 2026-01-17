@@ -8,7 +8,7 @@ RUN apt-get update && apt-get install -y \
 
 
 # Install RenderCV 2.6
-RUN pip install "rendercv[full]" fastapi uvicorn
+RUN pip install "rendercv[full]" fastapi uvicorn pyyaml
 
 # Optional: matikan update notice
 ENV RENDERCV_DISABLE_UPDATE_CHECK=1

@@ -16,7 +16,7 @@ services:
     #depends_on:
     #  - rendercv
     environment:
-      - RENDERCV_URL=http://rendercv:8000
+      - NEXT_PUBLIC_RENDERCV_URL=http://rendercv:8000
 
   rendercv:
     tty: true
